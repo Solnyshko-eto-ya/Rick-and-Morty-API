@@ -88,8 +88,8 @@ const App = () => {
     <Spinner spinning={loading}>
       <Header>
         <FilterContainer>
-          <GenderFilter gender={gender} onClick={() => handleGender} />
-          <StatusFilter status={status} onClick={() => handleStatus} />
+          <GenderFilter gender={gender} onClick={handleGender} />
+          <StatusFilter status={status} onClick={handleStatus} />
         </FilterContainer>
         <Search value={name} onChange={setName} />
       </Header>
