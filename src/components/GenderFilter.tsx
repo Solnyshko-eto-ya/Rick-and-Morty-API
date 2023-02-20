@@ -6,7 +6,6 @@ import { Genders, Status } from '../types';
 
 interface GenderFilterProps {
   gender: Genders;
-  status: Status;
   onClick: () => void;
 }
 
@@ -29,7 +28,7 @@ const items: MenuProps['items'] = [
   },
 ];
 
-const GenderFilter: React.FC<GenderFilterProps> = ({ gender, onClick, status }) => (
+const GenderFilter: React.FC<GenderFilterProps> = ({ gender, onClick }) => (
   <StyledDropDown menu={{ items, onClick: onClick }} placement='bottom'>
     <Button>Gender: {gender}</Button>
   </StyledDropDown>
