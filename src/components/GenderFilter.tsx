@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import type { MenuProps } from 'antd';
 import { Button, Dropdown } from 'antd';
 import styled from 'styled-components';
-import { Genders, Status } from '../types';
+import { Genders } from '../types';
 
 interface GenderFilterProps {
   gender: Genders;
-  onClick: () => void;
+  onClick: any;
 }
 
 const items: MenuProps['items'] = [

@@ -45,15 +45,6 @@ const App = () => {
     if (e.key === '1-4') {
       setGender(Genders.Genderless);
     }
-    if (e.key === '2-1') {
-      setStatus(Status.Alive);
-    }
-    if (e.key === '2-2') {
-      setStatus(Status.Dead);
-    }
-    if (e.key === '2-3') {
-      setStatus(Status.Unknown);
-    }
   };
 
   const handleStatus: MenuProps['onClick'] = e => {
@@ -88,8 +79,8 @@ const App = () => {
     <Spinner spinning={loading}>
       <Header>
         <FilterContainer>
-          <GenderFilter gender={gender} onClick={handleGender} />
-          <StatusFilter status={status} onClick={handleStatus} />
+          <GenderFilter gender={gender} onClick={() => handleGender} />
+          <StatusFilter status={status} onClick={() => handleStatus} />
         </FilterContainer>
         <Search value={name} onChange={setName} />
       </Header>
