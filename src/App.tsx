@@ -1,15 +1,15 @@
 import { MenuProps } from 'antd';
 import axios from 'axios';
-import React, { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { ChangePageButton, Search, Spinner } from './components';
+import { Filter, ChangePageButton, Search, Spinner } from './components';
 
 import CharacterDescription from './components/CharacterDescription';
-import GenderFilter from './components/GenderFilter';
 import { PageCount } from './components/PageCount';
-import StatusFilter from './components/StatusFilter';
+import { GENDERS, STATUSES, CATEGORIES } from './constants';
+
 import useDebounce from './hooks/use-debounce';
-import { Character, CharactersResponse, Genders, Status } from './types';
+import { Character, CharactersResponse, Gender, Status, Category } from './types';
 
 const App = () => {
   const [characterData, setCharacterData] = useState<CharactersResponse | null>(null);
@@ -17,8 +17,9 @@ const App = () => {
   const [name, setName] = useState<string>('');
   const [page, setPage] = useState(1);
   const debouncedName = useDebounce(name, 300);
-  const [gender, setGender] = useState<Genders>(Genders.Male);
+  const [gender, setGender] = useState<Gender>(Gender.Male);
   const [status, setStatus] = useState<Status>(Status.Alive);
+  const [category, setCategory] = useState<Category>(Category.Characters);
 
   const goPrevPage = () => {
     if (page > 1) {
@@ -33,30 +34,15 @@ const App = () => {
   };
 
   const handleGender: MenuProps['onClick'] = e => {
-    if (e.key === '1-1') {
-      setGender(Genders.Male);
-    }
-    if (e.key === '1-2') {
-      setGender(Genders.Female);
-    }
-    if (e.key === '1-3') {
-      setGender(Genders.Unknown);
-    }
-    if (e.key === '1-4') {
-      setGender(Genders.Genderless);
-    }
+    setGender(e.key as Gender);
   };
 
   const handleStatus: MenuProps['onClick'] = e => {
-    if (e.key === '2-1') {
-      setStatus(Status.Alive);
-    }
-    if (e.key === '2-2') {
-      setStatus(Status.Dead);
-    }
-    if (e.key === '2-3') {
-      setStatus(Status.Unknown);
-    }
+    setStatus(e.key as Status);
+  };
+
+  const handleCategory: MenuProps['onClick'] = e => {
+    setCategory(e.key as Category);
   };
 
   useEffect(() => {
@@ -79,10 +65,11 @@ const App = () => {
     <Spinner spinning={loading}>
       <Header>
         <FilterContainer>
-          <GenderFilter gender={gender} onClick={() => handleGender} />
-          <StatusFilter status={status} onClick={() => handleStatus} />
+          <Filter value={gender} onClick={handleGender} items={GENDERS} label='Gender' />
+          <Filter value={status} onClick={handleStatus} items={STATUSES} label='Status' />
         </FilterContainer>
         <Search value={name} onChange={setName} />
+        <Filter value={category} onClick={handleCategory} items={CATEGORIES} label='Category' />
       </Header>
       <CharactersContainer>
         {characterData?.results?.map(character => (

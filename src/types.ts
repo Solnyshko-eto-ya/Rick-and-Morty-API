@@ -37,7 +37,7 @@ export interface Location {
 
 export type CharactersResponse = Response<Character[]>;
 
-export enum Genders {
+export enum Gender {
   Male = 'Male',
   Female = 'Female',
   Unknown = 'Unknown',
@@ -48,6 +48,12 @@ export enum Status {
   Alive = 'Alive',
   Dead = 'Dead',
   Unknown = 'Unknown',
+}
+
+export enum Category {
+  Locations = 'Locations',
+  Characters = 'Characters',
+  Episodes = 'Episodes',
 }
 
 /* 
