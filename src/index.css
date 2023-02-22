@@ -19,7 +19,7 @@ code {
   left: 50%;
 }
 
-:where(.css-dev-only-do-not-override-j0nf2s).ant-btn-default:not(:disabled):hover {
+.ant-btn-default:not(:disabled):hover {
   color: #e99000;
   border-color: #e99000;
 }
