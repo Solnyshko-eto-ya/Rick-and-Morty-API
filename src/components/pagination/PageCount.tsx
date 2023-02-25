@@ -15,5 +15,5 @@ const StyledPageCount = styled.p`
   margin: 0 20px 0 20px;
 
   font-size: 30px;
-  color: #3d3d3d;
+  color: #ffffff;
 `;
