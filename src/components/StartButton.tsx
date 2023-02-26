@@ -13,11 +13,16 @@ const StartButton: FC<StartButtonProps> = ({ link }) => {
 const StyledStartButton = styled.a`
   display: inline-block;
 
+  width: 200px;
+  height: 50px;
+  margin-left: 200px;
+
   padding: 20px 40px 20px 40px;
 
   font-size: 30px;
   color: #000000;
   text-decoration: none;
+  text-align: center;
 
   user-select: none;
   background-color: #b2d06b;

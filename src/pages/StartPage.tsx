@@ -9,9 +9,8 @@ const StartPage = () => {
       <StartPageHeader>
         <StyledImage src={image}></StyledImage>
         <StyledHeading>Rick And Morty</StyledHeading>
-        <ButtonContainer>
-          <StartButton link='/characters' />
-        </ButtonContainer>
+
+        <StartButton link='/characters' />
       </StartPageHeader>
       <DescriptionContainer>
         <StyledStartDescription>
@@ -24,9 +23,8 @@ const StartPage = () => {
 
 const StartPageHeader = styled.div`
   display: flex;
-
-  align-items: center;
   gap: 15px;
+  align-items: center;
 
   width: 100%;
   height: 350px;
@@ -45,22 +43,12 @@ const StyledImage = styled.img`
 const StyledHeading = styled.h1`
   font-size: 80px;
   color: white;
+  display: inline-block;
 
   &::selection {
     background-color: #232323;
     color: #e99000;
   }
-`;
-
-const ButtonContainer = styled.div`
-  position: relative;
-  top: 5%;
-
-  display: flex;
-  justify-content: center;
-  /* align-items: center; */
-
-  width: 100%;
 `;
 
 const DescriptionContainer = styled.div`
