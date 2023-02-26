@@ -33,8 +33,15 @@ const EpisodesPage = () => {
   return (
     <>
       <Header>
+        <h2 style={{ color: '#ffffff', fontSize: '30px' }}>I'll finish it soon (Probably)</h2>
         <Search value={episodeName} onChange={setepisodename} placeholder='Input Episode Name' />
-        <Filter value={category} onClick={handleCategory} items={CATEGORIES} text='Category' />
+        <Filter
+          disabled={true}
+          value={category}
+          onClick={handleCategory}
+          items={CATEGORIES}
+          text='Category'
+        />
       </Header>
       <EpisodesContainer>
         {episodeData?.results?.map(episode => (

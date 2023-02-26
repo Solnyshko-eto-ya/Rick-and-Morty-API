@@ -5,7 +5,7 @@ import React from 'react';
 export const CATEGORIES: MenuProps['items'] = [
   {
     key: Category.Characters,
-    label: <a href='/'>Characters</a>,
+    label: <a href='/characters'>Characters</a>,
   },
   {
     key: Category.Episodes,

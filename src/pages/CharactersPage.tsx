@@ -45,14 +45,32 @@ const CharactersPage = () => {
   return (
     <>
       <Header>
-        <Filter value={gender} onClick={handleGender} items={GENDERS} text='Gender' />
-        <Filter value={status} onClick={handleStatus} items={STATUSES} text='Status' />
+        <Filter
+          disabled={false}
+          value={gender}
+          onClick={handleGender}
+          items={GENDERS}
+          text='Gender'
+        />
+        <Filter
+          disabled={false}
+          value={status}
+          onClick={handleStatus}
+          items={STATUSES}
+          text='Status'
+        />
         <Search
           value={characterName}
           onChange={setCharacterName}
           placeholder='Input Character Name'
         />
-        <Filter value={category} onClick={handleCategory} items={CATEGORIES} text='Category' />
+        <Filter
+          disabled={true}
+          value={category}
+          onClick={handleCategory}
+          items={CATEGORIES}
+          text='Category'
+        />
       </Header>
       <CharactersContainer>
         {characterData?.results?.map(character => (

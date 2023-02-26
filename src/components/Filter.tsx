@@ -8,10 +8,11 @@ interface FilterProps {
   onClick: MenuProps['onClick'];
   items: MenuProps['items'];
   text: string;
+  disabled: boolean;
 }
 
-const Filter: FC<FilterProps> = ({ onClick, value, items, text }) => (
-  <StyledDropDown menu={{ items, onClick }} placement='bottom'>
+const Filter: FC<FilterProps> = ({ onClick, value, items, text, disabled }) => (
+  <StyledDropDown menu={{ items, onClick }} placement='bottom' disabled={disabled}>
     <Button>
       {text}: {value}
     </Button>
@@ -28,6 +29,11 @@ const StyledDropDown = styled(Dropdown)`
   &:hover {
     border-color: #e99000;
     border: 3px solid #e99000;
+  }
+
+  &:disabled {
+    border-color: #e99000;
+    background-color: #969696;
   }
 `;
 

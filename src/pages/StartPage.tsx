@@ -1,5 +1,4 @@
 import React from 'react';
-import { Header } from './CharactersPage';
 import image from '../images/image2.png';
 import styled from 'styled-components';
 import { StartButton } from '../components';
@@ -9,11 +8,16 @@ const StartPage = () => {
     <>
       <StartPageHeader>
         <StyledImage src={image}></StyledImage>
-        <StyledHeading>Rick And Morty WIKI</StyledHeading>
+        <StyledHeading>Rick And Morty</StyledHeading>
+        <ButtonContainer>
+          <StartButton link='/characters' />
+        </ButtonContainer>
       </StartPageHeader>
-      <ButtonContainer>
-        <StartButton link='/characters' />
-      </ButtonContainer>
+      <DescriptionContainer>
+        <StyledStartDescription>
+          A website using Rick and Morty API by Solnyshko
+        </StyledStartDescription>
+      </DescriptionContainer>
     </>
   );
 };
@@ -50,13 +54,33 @@ const StyledHeading = styled.h1`
 
 const ButtonContainer = styled.div`
   position: relative;
-  top: 100px;
+  top: 5%;
 
   display: flex;
   justify-content: center;
   /* align-items: center; */
 
   width: 100%;
+`;
+
+const DescriptionContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+`;
+
+const StyledStartDescription = styled.h2`
+  font-size: 50px;
+  color: #ffffff;
+
+  display: inline-block;
+  position: relative;
+
+  &::selection {
+    background-color: #232323;
+    color: #e99000;
+  }
 `;
 
 export default StartPage;
