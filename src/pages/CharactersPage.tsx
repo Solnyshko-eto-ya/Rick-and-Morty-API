@@ -65,7 +65,7 @@ const CharactersPage = () => {
           placeholder='Input Character Name'
         />
         <Filter
-          disabled={true}
+          disabled={false}
           value={category}
           onClick={handleCategory}
           items={CATEGORIES}

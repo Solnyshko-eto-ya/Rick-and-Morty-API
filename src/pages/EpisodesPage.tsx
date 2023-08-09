@@ -36,7 +36,7 @@ const EpisodesPage = () => {
         <h2 style={{ color: '#ffffff', fontSize: '30px' }}>I'll finish it soon (Probably)</h2>
         <Search value={episodeName} onChange={setepisodename} placeholder='Input Episode Name' />
         <Filter
-          disabled={true}
+          disabled={false}
           value={category}
           onClick={handleCategory}
           items={CATEGORIES}

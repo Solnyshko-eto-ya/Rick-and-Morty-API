@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CharactersPage from './pages/CharactersPage';
 import EpisodesPage from './pages/EpisodesPage';
 import LocationsPage from './pages/LocationsPage';
-import StartPage from './pages/StartPage';
+
 import { Gender, Status, Category, Context, ResponseMetadata } from './types';
 
 export const AppContext = React.createContext<Context>({
@@ -56,7 +56,7 @@ const App = () => {
     >
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<StartPage />} />
+          <Route path='/' element={<CharactersPage />} />
           <Route path='/characters' element={<CharactersPage />} />
           <Route path='/episodes' element={<EpisodesPage />} />
           <Route path='/locations' element={<LocationsPage />} />
